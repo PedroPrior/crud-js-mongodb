@@ -20,6 +20,10 @@ app.use(express.json())
 
 // Rotas (CRUD)
 
+app.get('/', function (req, res) {
+  res.send("Testando API");
+});
+
 // POST
 app.post('/person', async (req, res) => {
   const { name, salary, approved } = req.body
