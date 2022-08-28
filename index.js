@@ -7,7 +7,8 @@ const app = express()
 const mongoose = require('mongoose')
 const Person = require('./models/Person')
 
-
+// Porta
+const port = process.env.PORT || 3000;
 
 app.use(
   express.urlencoded({
@@ -122,12 +123,15 @@ app.get('/', (req, res) => {
   res.json({ message: 'Oi Express!' })
 })
 
+
+
+
 // Conexão banco
 
 mongoose.connect('mongodb+srv://pedro:root@apicluster.saprc30.mongodb.net/bancoapi?retryWrites=true&w=majority')
 .then(() => {
     console.log('Conectado com sucesso!')
-    app.listen(3000)
+    app.listen(port)
 })
 .catch((err) => console.log(err)) 
 
